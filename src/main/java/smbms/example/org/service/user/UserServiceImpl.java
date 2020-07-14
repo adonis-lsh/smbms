@@ -12,7 +12,7 @@ public class UserServiceImpl implements UserService{
         try {
             UserDao userDao = new UserDaoImpl();
             loginUser = userDao.getLoginUser(BaseDao.getConnection(), userCode);
-            if (!loginUser.getUserPassword().equals(password)) {
+            if (!loginUser.getPassword().equals(password)) {
                 loginUser = null;
             }
         } catch (Exception e) {

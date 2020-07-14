@@ -1,12 +1,15 @@
 package smbms.example.org.pojo;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.Date;
 
+@Alias("TestUser")
 public class User {
     private Integer id; //id
     private String userCode; //用户编码
     private String userName; //用户名称
-    private String userPassword; //用户密码
+    private String password; //用户密码
     private Integer gender;  //性别
     private Date birthday;  //出生日期
     private String phone;   //电话
@@ -41,12 +44,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Integer getGender() {
@@ -119,5 +122,24 @@ public class User {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userCode='" + userCode + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + password + '\'' +
+                ", gender=" + gender +
+                ", birthday=" + birthday +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", userRole=" + userRole +
+                ", createdBy=" + createdBy +
+                ", creationDate=" + creationDate +
+                ", modifyBy=" + modifyBy +
+                ", modifyDate=" + modifyDate +
+                '}';
     }
 }

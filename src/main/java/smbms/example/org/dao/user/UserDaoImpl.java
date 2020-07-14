@@ -4,8 +4,6 @@ import smbms.example.org.dao.BaseDao;
 import smbms.example.org.pojo.User;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDaoImpl implements UserDao {
@@ -23,7 +21,7 @@ public class UserDaoImpl implements UserDao {
                             user[0].setId(rs.getInt("id"));
                             user[0].setUserCode(rs.getString("userCode"));
                             user[0].setUserName(rs.getString("userName"));
-                            user[0].setUserPassword(rs.getString("userPassword"));
+                            user[0].setPassword(rs.getString("userPassword"));
                             user[0].setGender(rs.getInt("gender"));
                             user[0].setBirthday(rs.getDate("birthday"));
                             user[0].setPhone(rs.getString("phone"));

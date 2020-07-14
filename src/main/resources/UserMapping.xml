@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace=绑定一个指定的Dao/Mapper接口-->
+<mapper namespace="smbms.example.org.dao.user.UserTestDao">
+    <insert id="addUser">
+        insert into smbms_user (id,userCode,userName,userPassword,gender,phone) values (#{id},#{userCode},#{userName},#{userPassword},#{gender},#{phone})
+    </insert>
+    <insert id="addUserByMap">
+       insert into smbms_user (id,userCode,userName,userPassword,gender,phone) values (#{id},#{userCode},#{userName},#{userPassword},#{gender},#{phone})
+    </insert>
+    <select id="getUserList" resultType="TestUser">
+        select * from smbms_user
+    </select>
+    <select id="getUserLike" resultType="TestUser" resultMap="UserMap">
+        select * from smbms_user where  userName like "%"#{value}"%"
+    </select>
+    <resultMap id="UserMap" type="TestUser">
+        <result column="userPassword" property="password"/>
+    </resultMap>
+</mapper>
